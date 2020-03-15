@@ -3,7 +3,7 @@ import time
 import sys
 from enum import IntEnum
 import math
-# test zmiany
+
 def sumuj_do(b):
         suma = 0
         lista = range(1, b + 1)
