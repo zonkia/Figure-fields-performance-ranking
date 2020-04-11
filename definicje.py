@@ -55,7 +55,7 @@ def sumuj_do5(b):
 
 def wydajnosc(func, b, ilosc_razy):
         start = time.perf_counter()
-        for i in range(0, ilosc_razy):
+        for _ in range(0, ilosc_razy):
             print(func(b))
         end = time.perf_counter()
         return end - start
