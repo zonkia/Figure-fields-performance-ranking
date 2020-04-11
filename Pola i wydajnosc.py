@@ -4,15 +4,6 @@ import sys
 from enum import IntEnum
 import math
 
-def sumuj_do(b):
-        suma = 0
-        lista = range(1, b + 1)
-        for liczby in lista:
-                liczba = liczby
-                suma = suma + liczba
-        nazwa = "Sumowanie pętli:"
-        return nazwa, suma
-
 Menu_figury = IntEnum("Menu_figury", "PROSTOKĄT KOŁO TRÓJKĄT RÓWNOLEGŁOBOK TRAPEZ DELTOID SUMOWANIE")
 
 print("Witaj w programie liczącym powierzchnie figur oraz sumującym wszystkie liczby od 1 do \"n\"")
@@ -78,35 +69,39 @@ while True:
             
             elif (wybor == Menu_figury.SUMOWANIE):
                 b = int(input("Podaj do której liczby zrobić sumowanie: "))
+                try:
+                    ilosc_razy = int(input("Podaj liczbę iteracji: "))
+                except:
+                    True
                 print()
 
                 slownik_wynikow = {}
 
-                czas = definicje.wydajnosc(definicje.sumuj_do, b)
+                czas = definicje.wydajnosc(definicje.sumuj_do, b, ilosc_razy)
                 print("Wydajność [s]:", czas)
                 slownik_wynikow["Sumowanie pętli"] = czas
                 print("Rozmiar funkcji:", sys.getsizeof(definicje.sumuj_do(b)))
                 print()
 
-                czas = definicje.wydajnosc(definicje.sumuj_do2, b)
+                czas = definicje.wydajnosc(definicje.sumuj_do2, b, ilosc_razy)
                 print("Wydajność [s]:", czas)
                 slownik_wynikow["Suma z generatora"] = czas
                 print("Rozmiar funkcji:", sys.getsizeof(definicje.sumuj_do2(b)))
                 print()
 
-                czas = definicje.wydajnosc(definicje.sumuj_do3, b)
+                czas = definicje.wydajnosc(definicje.sumuj_do3, b, ilosc_razy)
                 print("Wydajność [s]:", czas)
                 slownik_wynikow["Sumowanie listy"] = czas
                 print("Rozmiar funkcji:", sys.getsizeof(definicje.sumuj_do3(b)))
                 print()
 
-                czas = definicje.wydajnosc(definicje.sumuj_do4, b)
+                czas = definicje.wydajnosc(definicje.sumuj_do4, b, ilosc_razy)
                 print("Wydajność [s]:", czas)
                 slownik_wynikow["Sumowanie wzoru arytm"] = czas
                 print("Rozmiar funkcji:", sys.getsizeof(definicje.sumuj_do4(b)))
                 print()
 
-                czas = definicje.wydajnosc(definicje.sumuj_do5, b)
+                czas = definicje.wydajnosc(definicje.sumuj_do5, b, ilosc_razy)
                 print("Wydajność [s]:", czas)
                 slownik_wynikow["Sumowanie listy z pętli"] = czas
                 print("Rozmiar funkcji:", sys.getsizeof(definicje.sumuj_do5(b)))
@@ -137,7 +132,7 @@ while True:
 
         else:
             print()
-            print("Nie ma takiej figury. Spróbuj ponownie")
+            print("Nieprawidłowa komenda. Spróbuj ponownie")
             print()
             continue
 

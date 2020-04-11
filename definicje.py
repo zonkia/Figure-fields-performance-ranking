@@ -53,8 +53,9 @@ def sumuj_do5(b):
         nazwa = "Sumowanie listy z pętli.:"
         return nazwa, suma
 
-def wydajnosc(func, b):
+def wydajnosc(func, b, ilosc_razy):
         start = time.perf_counter()
-        print(func(b))
+        for i in range(0, ilosc_razy):
+            print(func(b))
         end = time.perf_counter()
         return end - start
